@@ -11,6 +11,11 @@ class TicTacToe {
         this.board = [];
     }
 
+    start() {
+        this.createBoard();
+        this.addEventListeners();
+    }
+
     getRandomPlayer() {
         let players = ['X', 'O'];
         let randomVal = Math.floor(Math.random()*2);
@@ -27,7 +32,6 @@ class TicTacToe {
         }
 
         $("#"+this.DOMElements.boardId).html(htmlCode);
-        this.addEventListeners();
     }
 
     setPlayerOnBoard(fieldId) {

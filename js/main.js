@@ -6,7 +6,5 @@ $(document).ready(function(){
            }
        });
 
-   console.log(game);
-
-   game.createBoard();
+   game.start();
 });
