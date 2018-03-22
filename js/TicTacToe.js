@@ -9,7 +9,16 @@ class TicTacToe {
         this.startingPlayer = options.startingPlayer || this.getRandomPlayer();
         this.currentPlayer = this.startingPlayer;
         this.board = ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'];
-        this.winningPatterns = [0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 4, 8, 2, 4, 6]
+        this.winningPatterns = [
+            [0,1,2],
+            [3,4,5],
+            [6,7,8],
+            [0,3,6],
+            [1,4,7],
+            [2,5,8],
+            [2,4,6],
+            [0,4,8]
+        ];
     }
 
     start() {
@@ -31,7 +40,6 @@ class TicTacToe {
             let fieldId = "field" + i;
             htmlCode += '<div class="' + this.DOMElements.fieldClass + '" id="' + fieldId + '"></div>';
         }
-
 
         $("#" + this.DOMElements.boardId).html(htmlCode);
     }
@@ -61,12 +69,13 @@ class TicTacToe {
     checkIfPlayerWins() {
         let winner = false;
 
-        for (let i = 0; i < this.winningPatterns.length; i++) {
-            let field1 = this.board[this.winningPatterns[i]];
-            let field2 = this.board[this.winningPatterns[i + 1]];
-            let field3 = this.board[this.winningPatterns[i + 2]];
+        for(let i = 0; i < this.winningPatterns.length; i++) {
+            let fields = [];
+            for(let j = 0; j < 3; j++) {
+                fields.push(this.board[this.winningPatterns[i][j]]);
+            }
 
-            if (field1 === field2 && field2 === field3 && field1 !== 'n') {
+            if(fields[0] === fields[1] && fields[1] === fields[2] && fields[0] !== 'n') {
                 winner = this.currentPlayer;
             }
         }
