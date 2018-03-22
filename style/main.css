@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech');
+
+body {
+    font-family: 'Share Tech', sans-serif;
+    background: #202020;
+    color: #f2f2f2;
+    margin: 0;
+}
+
+.container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 50px;
+    font-weight: 100;
+}
+
+#board {
+    margin: 10px 10px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.square {
+    height: 100px;
+    background: #000;
+    float: left;
+    border: 1px solid #303030;
+    line-height: 100px;
+    font-size: 45px;
+}
+
+.square:hover {
+    background: #0a0a0a;
+    cursor: pointer;
+}
+
+.square:nth-child(2),
+.square:nth-child(5),
+.square:nth-child(8) {
+    border-left: none;
+    border-right: none;
+}
+
+.square:nth-child(n+4)
+{
+    border-top: none;
+}
+
+button {
+    font-family: 'Share Tech', sans-serif;
+    background: transparent;
+    border: none;
+    color: #dedede;
+    font-size: 18px;
+}
+
+button:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+@media(min-width: 400px) {
+    .container {
+        width: 400px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+}
