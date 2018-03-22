@@ -7,8 +7,9 @@ class TicTacToe {
         };
 
         this.startingPlayer = options.startingPlayer || this.getRandomPlayer();
+        this.currentPlayer = this.startingPlayer;
+        this.board = [];
     }
-
 
     getRandomPlayer() {
         let players = ['X', 'O'];
@@ -21,9 +22,38 @@ class TicTacToe {
         let htmlCode = '';
 
         for(let i = 0; i < 9; i++) {
-            htmlCode += '<div class="'+this.DOMElements.fieldClass+'"></div>';
+            let fieldId = "field"+i;
+            htmlCode += '<div class="'+this.DOMElements.fieldClass+'" id="'+fieldId+'"></div>';
         }
 
         $("#"+this.DOMElements.boardId).html(htmlCode);
+        this.addEventListeners();
+    }
+
+    setPlayerOnBoard(fieldId) {
+        let field = $("#field"+fieldId);
+
+        field.html(this.currentPlayer);
+        field.css('pointer-events', 'none');
+
+        if(this.currentPlayer === 'X') {
+            this.currentPlayer = 'O';
+        } else {
+            this.currentPlayer = 'X';
+        }
+
+        this.board[fieldId] = this.currentPlayer;
+    }
+
+    addEventListeners() {
+        let _this = this;
+
+        for(let i = 0; i < 9; i++) {
+            let fieldId = 'field'+i;
+
+            $("#"+fieldId).click(function(){
+                _this.setPlayerOnBoard(i);
+            });
+        }
     }
 }
