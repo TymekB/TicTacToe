@@ -84,6 +84,5 @@ class TicTacToe {
                 _this.setPlayerOnBoard(i);
             });
         }
-
     }
 }

@@ -7,4 +7,9 @@ $(document).ready(function(){
        });
 
    game.start();
+
+   $('#restart').click(function() {
+       location.reload();
+   });
 });
+
