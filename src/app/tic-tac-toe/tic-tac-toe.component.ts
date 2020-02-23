@@ -28,9 +28,12 @@ export class TicTacToeComponent implements OnInit {
 
     }
 
+    ngOnInit(): void {
+    }
+
     setBoard() {
         for (let i = 0; i < 9; i++) {
-            this.board.push(null);
+            this.board[i] = null;
         }
     }
 
@@ -80,7 +83,10 @@ export class TicTacToeComponent implements OnInit {
         }
     }
 
-    ngOnInit(): void {
+    restart() {
+        this.gameEnded = false;
+        this.setBoard();
     }
+
 
 }
