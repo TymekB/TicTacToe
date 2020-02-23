@@ -1,0 +1,17 @@
+h1.logo {
+    font-weight: 300;
+    text-align: center;
+}
+
+.square {
+    border: 1px solid #e6e6e6;
+    height: 100px;
+    line-height: 100px;
+}
+
+.square:hover {
+    cursor: pointer;
+    background: #fafafa;
+}
+
+
