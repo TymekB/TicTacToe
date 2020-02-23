@@ -13,10 +13,21 @@ export class TicTacToeComponent implements OnInit {
     constructor() {
 
         this.player = this.getRandomPlayer();
+        this.setBoard();
 
+    }
+
+    setBoard() {
         for (let i = 0; i < 9; i++) {
             this.board.push(null);
         }
+    }
+
+    getRandomPlayer() {
+        let players = ['X', 'O'];
+        let randomNum = Math.floor(Math.random() * players.length);
+
+        return players[randomNum];
     }
 
     setPlayerOnBoard(pos) {
@@ -28,13 +39,6 @@ export class TicTacToeComponent implements OnInit {
         } else {
             this.player = 'X';
         }
-    }
-
-    getRandomPlayer() {
-        let players = ['X', 'O'];
-        let randomNum = Math.floor(Math.random() * players.length);
-
-        return players[randomNum];
     }
 
     ngOnInit(): void {
