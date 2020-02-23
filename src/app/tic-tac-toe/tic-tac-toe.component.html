@@ -6,10 +6,16 @@
             <h1 class="logo">Tic Tac Toe</h1>
 
             <div class="row mt-5 text-center">
-                <div class="col-4 square" *ngFor="let item of board"></div>
+                <div class="col-4 square" *ngFor="let item of board; index as i"
+                     [ngClass]="item !== null ? 'inactive' : ''"
+                     (click)="setPlayerOnBoard(i)">
+                    {{item}}
+                </div>
             </div>
 
-            <div class="text-center mt-5">
+            <div class="text-center mt-3">Player: {{player}}</div>
+
+            <div class="text-center mt-3">
                 <button class="btn btn-primary">Restart</button>
             </div>
 
