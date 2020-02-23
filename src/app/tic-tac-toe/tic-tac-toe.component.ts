@@ -8,9 +8,12 @@ import {Component, OnInit} from '@angular/core';
 export class TicTacToeComponent implements OnInit {
 
     board = [];
-    player = 'X';
+    player;
 
     constructor() {
+
+        this.player = this.getRandomPlayer();
+
         for (let i = 0; i < 9; i++) {
             this.board.push(null);
         }
@@ -25,6 +28,13 @@ export class TicTacToeComponent implements OnInit {
         } else {
             this.player = 'X';
         }
+    }
+
+    getRandomPlayer() {
+        let players = ['X', 'O'];
+        let randomNum = Math.floor(Math.random() * players.length);
+
+        return players[randomNum];
     }
 
     ngOnInit(): void {
