@@ -6,17 +6,7 @@
             <h1 class="logo">Tic Tac Toe</h1>
 
             <div class="row mt-5 text-center">
-                <div class="col-4 square"></div>
-                <div class="col-4 square"></div>
-                <div class="col-4 square"></div>
-
-                <div class="col-4 square"></div>
-                <div class="col-4 square"></div>
-                <div class="col-4 square"></div>
-
-                <div class="col-4 square"></div>
-                <div class="col-4 square"></div>
-                <div class="col-4 square"></div>
+                <div class="col-4 square" *ngFor="let item of board"></div>
             </div>
 
             <div class="text-center mt-5">
